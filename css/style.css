@@ -1,0 +1,42 @@
+body{
+   
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Nav-bar*/
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.navbar-header img{
+	height:100px;
+}
+
+.nav li  {
+    
+    display: block;
+    padding: 20px 30px;
+    margin-top: 30px;
+}
+
+/*End Nav-bar*/
+
+ul{
+    list-style-type: none;
+}
+
+#movieList{
+	text-decoration: none;
+}
+
+.lheight {
+    line-height: 53px;
+}
+
+.btm{
+    background-color: black;
+    height:40px;
+    width: 100%
+}
