@@ -1,28 +1,14 @@
-// about us 
+// Global Declaration
+var URL_KEY="http://api.themoviedb.org/3/discover/movie?api_key=22d8568621673d1336e8d0d1fb253821";
+var URL='http://api.themoviedb.org/3/movie/';
+var KEY='?api_key=22d8568621673d1336e8d0d1fb253821';
+var POSTER='https://image.tmdb.org/t/p/w500';
+// End Global declaration
+
+// // Display Movie List
 $(document).ready(function(){
 
-  $("#aboutus").click(function(){
-    $("#text").hide();
-      $.getJSON("json/abt.json",function(data){
-        $.each(data.abouts,function(key,value){
-          console.log(key, value);
-            $("#au").html(calling(value.abt, value.first, value.second, value.third));
-    });
-   }); 
-  });
- });
-
-function calling(abt, first,second,third)
- {
-  var output = '<div class="container"> <div class="jumbotron"> <span class="title">' + abt + ' </br> </span> <span class="content">' + first + '</span> <span class="content">' + second + '</span><span class="content">' + third + '</span></div></div>';
-    console.log(output);
-      return output;
-  }
-  // end about us
-
-  // Display Movie List
-$(document).ready(function(){
-      $.getJSON("http://api.themoviedb.org/3/discover/movie?api_key=22d8568621673d1336e8d0d1fb253821",function(data){
+      $.getJSON(URL_KEY,function(data){
          $.each(data.results,function(key,value){
             console.log(key, value);
              $("#movies").append('<li><a href="#" onClick="Details('+ value.id +'); return false;">' + value.title + '</a></li>'); 
@@ -30,13 +16,13 @@ $(document).ready(function(){
    });
  });
 
-function Details(id)
-{
+function Details(id){
+
  $("#leftpart").css("width","50%");
   $("#rightpart").css("width","50%");
-    var link='http://api.themoviedb.org/3/movie/'+id+'?api_key=22d8568621673d1336e8d0d1fb253821';
+    var link=URL+id+KEY;
       $.getJSON(link,function(data){
-        var poster = 'https://image.tmdb.org/t/p/w500'+data.poster_path;
+        var poster = POSTER+data.poster_path;
           console.log(poster);
             $("#poster").attr("src",poster).attr('width', 200).attr('height', 400);
             $("#title").html("Movie Title : " +data.title);
@@ -47,11 +33,31 @@ function Details(id)
             $("#budget").html("Movie Budget : " +data.budget);
 });
 }
-// display movie list
+// // End display movie list
 
-// Contact us 
-$(document).ready(function(){
-  $("#contactus").click(function(){
+// about us call back 
+function about(aboutus){
+     
+      $("#text").hide();
+      $.getJSON("json/abt.json",function(data){
+        $.each(data.abouts,function(key,value){
+          console.log(key, value);
+            $("#au").html(calling(value.abt, value.first, value.second, value.third));
+    });
+   }); 
+}
+
+function calling(abt, first,second,third){
+
+  var output = '<div class="container"> <div class="jumbotron"> <span class="title">' + abt + ' </br> </span> <span class="content">' + first + '</span> <span class="content">' + second + '</span><span class="content">' + third + '</span></div></div>';
+    console.log(output);
+      return output;
+  }
+// end about us call back
+
+// // Contact call back 
+function contact(contactus){
+
       $("#text").text("Contact Us!");
       $("div#au").html(   
         $("<form/>",{action:'#', method:'#'}).append(   
@@ -66,10 +72,11 @@ $(document).ready(function(){
           $("<br/>"),
           $("<input/>", {type:'submit', id:'submit', value:'Submit'})
           )
-          )
-}); 
-});
-// end contact us
+          ) 
+}
+// end contact us call back
+
+
 
 
 
