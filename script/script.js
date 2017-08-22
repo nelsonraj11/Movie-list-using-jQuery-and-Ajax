@@ -10,7 +10,6 @@ $(document).ready(function(){
 
       $.getJSON(URL_KEY,function(data){
          $.each(data.results,function(key,value){
-            console.log(key, value);
              $("#movies").append('<li><a href="#" onClick="Details('+ value.id +'); return false;">' + value.title + '</a></li>'); 
     });
    });
@@ -23,7 +22,6 @@ function Details(id){
     var link=URL+id+KEY;
       $.getJSON(link,function(data){
         var poster = POSTER+data.poster_path;
-          console.log(poster);
             $("#poster").attr("src",poster).attr('width', 200).attr('height', 400);
             $("#title").html("Movie Title : " +data.title);
             $("#date_of_release").html("Date of Release : " +data.release_date);
@@ -41,17 +39,21 @@ function about(aboutus){
       $("#text").hide();
       $.getJSON("json/abt.json",function(data){
         $.each(data.abouts,function(key,value){
-          console.log(key, value);
-            $("#au").html(calling(value.abt, value.first, value.second, value.third));
+          $("#au").html(content(value.abt, value.first, value.second, value.third));
     });
    }); 
 }
 
-function calling(abt, first,second,third){
+function content(abt, first,second,third){
 
-  var output = '<div class="container"> <div class="jumbotron"> <span class="title">' + abt + ' </br> </span> <span class="content">' + first + '</span> <span class="content">' + second + '</span><span class="content">' + third + '</span></div></div>';
-    console.log(output);
-      return output;
+  var output = '<div class="container">\
+                  <div class="jumbotron"> \
+                      <span class="title">' + abt + ' </br> \
+                        </span> <span class="content">' + first + '</span>\
+                          <span class="content">' + second + '</span>\
+                            <span class="content">' + third + '</span></div>\
+                              </div>';
+                                return output;
   }
 // end about us call back
 
@@ -59,17 +61,11 @@ function calling(abt, first,second,third){
 function contact(contactus){
 
       $("#text").text("Contact Us!");
-      $("div#au").html(   
+       $("div#au").html(   
         $("<form/>",{action:'#', method:'#'}).append(   
           $("<input/>", {type:'text', id:'vname', name:'name', placeholder:'Your Name'}), 
-          $("<br/>"),
-          $("<br/>"),
           $("<input/>", {type:'text', id:'vemail', name:'email', placeholder:'Your Email'}),
-          $("<br/>"),
-          $("<br/>"),
           $("<textarea/>", {rows:'5px', cols:'27px', type:'text', id:'vmsg', name:'msg', placeholder:'Message'}),
-          $("<br/>"),
-          $("<br/>"),
           $("<input/>", {type:'submit', id:'submit', value:'Submit'})
           )
           ) 

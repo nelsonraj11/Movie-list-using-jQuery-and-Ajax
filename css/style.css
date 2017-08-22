@@ -45,7 +45,7 @@ ul{
     background-color: none;
 }
 
-nav li a:hover {
+nav li a:active {
     background-color: rgba(157, 157, 157, 0.47)!important;
     border-radius: 25px !important;
 }
@@ -98,7 +98,7 @@ content{
  
  input{
     width: 100% !important;
-    margin:19px ;
+    margin:7px !important ;
     padding:5px;
     height:50px;
     box-shadow: 5px 4px 8px -3px grey !important;
@@ -123,6 +123,8 @@ content{
     padding:5px;
     box-shadow: 5px 4px 8px -3px grey !important;
     border-radius:3px;
+    margin-top: 10px !important;
+    margin-left: 8px !important;
   }
  
 div#container{
