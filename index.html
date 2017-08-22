@@ -13,15 +13,16 @@
 					<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 					<script src= "script/script.js"></script>
 							<title> Movie Portals</title>
-							<link rel="icon" href="images/icon.png" type="image/png" />
+								<link rel="icon" href="images/icon.png" type="image/png" />
 
 	</head>
-
 <body>		
-		<div class="container">
+
+		<div class="container" id ="full">
 
 		<!-- Nav-Bar -->
-			<nav class="navbar navbar-inverse">
+			<nav class="navbar navbar-default">
+      
   				<div class="container-fluid">
    					<div class="navbar-header">
 
@@ -30,9 +31,9 @@
         					<span class="icon-bar"></span>
         					<span class="icon-bar"></span>                        
       					</button>
-							 <a href="#"><img src="images/logo.png" alt="logo">  </a>
+							 <a class="navbar-brand" href="#"><img src="images/logo.png" alt="logo">  </a>
     				</div>
-
+ 
     				<div class="collapse navbar-collapse" id="myNavbar">
       					<ul class="nav navbar-nav navbar-right">
         					<li><a href="index.html" id="Home" >Home</a></li>
@@ -44,45 +45,41 @@
   			</nav>
 <!-- end navbar -->
 
-      <div id ="second">  		 	 
-        
-      <div class="text-success"> <label><h1>New Release</h1></label> 
+     
+      <div class="col-lg-12 m50" id ="text"> <label><h1>New Release</h1></label> 
   		</div>
       
 <!-- Movie list -->
-      <div class="row ">
-          <div class="col-lg-12 well" id="leftpart">
+      <div class="row " id ="au" >
+          <div class="col-lg-12" id="leftpart">
               <ul id="movies">
               </ul>
           </div>
           
           <div class="col-lg-6">
               <div class="lheight">
-                  <div class="col-lg-6" id="rightpart">
-                  <img  id ="poster" src="">
+                  <div class="col-lg-6 col-xs-12" id="rightpart">
+                  	<img  id ="poster" src="">
                   </div>
-                  <div id ="title">  </div>
-                  <div id ="date_of_release"> </div>
-                  <div id ="rating">      </div>
-                  <div id ="vote_count"></div>
-                  <div id ="popularity"></div>
-                  <div id ="budget"></div>
+                  	<div id ="title">  </div>
+                  	<div id ="date_of_release"> </div>
+                  	<div id ="rating">      </div>
+                  	<div id ="vote_count"></div>
+                  	<div id ="popularity"></div>
+                 	<div id ="budget"></div>
               </div>
           </div>
-        
-
       </div>
 <!-- end Movie list -->
 
 <!-- footer -->
-
-    <div class="btm">
+    
       <footer>
-        <p Adappt.co.uk>
+          <div class="col-lg-12 col-xs-12" id ="foot">
+          </div>
       </footer>
-    </div>
+    
+  </div>
 <!-- end footer -->
-
-</div>
 </body>
 </html>
